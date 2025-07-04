@@ -16,20 +16,20 @@ function App() {
                     </p>
                 </div>
             </div>
-            <div className="bg-gray-200 w-full h-full overflow-hidden">
-                <div className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-red-900 text-center">
+            <div className="bg-[#252525] text-[#f3f3f3] w-full h-full overflow-hidden">
+                <div className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center">
                     <h1 className="p-[2rem] text-3xl font-bold">
                         About Me
                     </h1>
                     <div
-                        className="bg-sky-500 w-[13rem] h-[13rem] mx-auto rounded-full flex items-center justify-center"
+                        className="bg-white w-[13rem] h-[13rem] mx-auto mt-[1rem] rounded-full flex items-center justify-center"
                         id="profile_img">
                         <img src="" alt="프로필"/>
                     </div>
-                    <div className="grid grid-cols-3 gap-[1rem] my-[2rem] mx-auto max-w-[600px]">
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                    <div className="grid grid-cols-3 gap-[1rem] my-[2rem] mx-auto max-w-[800px]">
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/name.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -40,9 +40,9 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/birth.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -53,9 +53,9 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/location.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -66,9 +66,9 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/phone.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -79,9 +79,9 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/mail.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -92,9 +92,9 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        <div className="info-card">
-                            <div className="info-card-img">
-                                <img src="" alt=""/>
+                        <div className="info-card flex gap-[1rem] mx-[2rem]">
+                            <div className="info-card-img w-[2rem] h-[2rem]">
+                                <img src="/public/icons/graduation.png" alt=""/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -107,6 +107,45 @@ function App() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="bg-lime-50 w-full h-full overflow-hidden">
+                <div className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-red-900 text-center">
+                    <h1 className="p-[2rem] text-3xl font-bold">
+                        Skill
+                    </h1>
+                    <div className="bg-cyan-50 w-full max-w-[800px] my-[1rem] mx-auto p-[1.5rem]">
+                        <div className="bg-red-300 flex gap-[3rem]"
+                             id="frontend">
+                            <div className="bg-red-100 w-[7rem]"
+                                 id="frontend-title">
+                                Frontend
+                            </div>
+                            <div className="bg-red-200"
+                                 id="frontend-content">
+                                dd
+                            </div>
+                        </div>
+                        <div className="bg-red-300 flex gap-[3rem]"
+                             id="backend">
+                            <div className="bg-red-100 w-[7rem]"
+                                 id="backend-title">
+                                Backend
+                            </div>
+                            <div className="bg-red-200"
+                                 id="backend-content">
+                                dd
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div className="bg-gray-200 w-full h-full overflow-hidden">
+                <div className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-red-900 text-center">
+                    <h1 className="p-[2rem] text-3xl font-bold">
+                        Project
+                    </h1>
                 </div>
             </div>
         </>
