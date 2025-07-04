@@ -1,6 +1,13 @@
 import Header from "./components/Header.jsx";
+import {useState} from "react";
 
 function App() {
+    const frontSkills = ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'Axios', 'PWA', 'Vercel']
+    const backSkills = ['Node.js', 'Express', 'supabase', 'cloudtype']
+
+    const [front, setFront] = useState(frontSkills);
+    const [back, setBack] = useState(backSkills);
+
 
     return (
         <>
@@ -17,7 +24,8 @@ function App() {
                 </div>
             </div>
             <div className="bg-[#252525] text-[#f3f3f3] w-full h-full overflow-hidden">
-                <div className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center">
+                <div
+                    className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
                     <h1 className="p-[2rem] text-3xl font-bold">
                         About Me
                     </h1>
@@ -29,7 +37,7 @@ function App() {
                     <div className="grid grid-cols-3 gap-[1rem] my-[2rem] mx-auto max-w-[800px]">
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/name.png" alt=""/>
+                                <img src="/public/icons/name.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -42,7 +50,7 @@ function App() {
                         </div>
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/birth.png" alt=""/>
+                                <img src="/public/icons/birth.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -55,7 +63,7 @@ function App() {
                         </div>
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/location.png" alt=""/>
+                                <img src="/public/icons/location.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -68,7 +76,7 @@ function App() {
                         </div>
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/phone.png" alt=""/>
+                                <img src="/public/icons/phone.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -81,7 +89,7 @@ function App() {
                         </div>
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/mail.png" alt=""/>
+                                <img src="/public/icons/mail.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -94,7 +102,7 @@ function App() {
                         </div>
                         <div className="info-card flex gap-[1rem] mx-[2rem]">
                             <div className="info-card-img w-[2rem] h-[2rem]">
-                                <img src="/public/icons/graduation.png" alt=""/>
+                                <img src="/public/icons/graduation.png" alt="" className="filter invert"/>
                             </div>
                             <div className="info-card-content text-left">
                                 <p className="info-card-content-title font-bold">
@@ -121,9 +129,15 @@ function App() {
                                  id="frontend-title">
                                 Frontend
                             </div>
-                            <div className="bg-red-200"
+                            <div className="bg-red-200 flex gap-[1rem] flex-wrap"
                                  id="frontend-content">
-                                dd
+                                {frontSkills.map((item, index) => {
+                                    return (
+                                        <div className="bg-[#202020] text-[#f3f3f3] px-[1rem]">
+                                            {item}
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                         <div className="bg-red-300 flex gap-[3rem]"
@@ -132,9 +146,15 @@ function App() {
                                  id="backend-title">
                                 Backend
                             </div>
-                            <div className="bg-red-200"
+                            <div className="bg-red-200 flex gap-[1rem]"
                                  id="backend-content">
-                                dd
+                                {backSkills.map((item, index) => {
+                                    return (
+                                        <div className="">
+                                            {item}
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
 
