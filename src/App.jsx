@@ -40,271 +40,285 @@ function App() {
             contents: ['JavaScript, React, Node 등 학습', '협업 프로젝트 4회 진행']
         }
     ]
+
+    const moveTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
     return (
         <>
             <Header/>
-            <div className="bg-red-50 w-full h-full overflow-hidden">
-                <div className="mx-auto my-[5rem] w-full max-w-[1200px] text-center"
-                     id="intro">
-                    <h1 className="text-3xl">
-                        풀스택 개발자 <span className="font-bold">차진영</span>입니다.
-                    </h1>
-                    <p className="text-xl mt-[2rem]">
-                        뭐라고 쓸까
-                    </p>
+            <div>
+                <div className="w-full h-full overflow-hidden">
+                    <div className="mx-auto my-[5rem] w-full max-w-[1200px] text-center"
+                         id="intro">
+                        <h1 className="text-3xl">
+                            풀스택 개발자 <span className="font-bold">차진영</span>입니다.
+                        </h1>
+                        <p className="text-xl mt-[2rem]">
+                            뭐라고 쓸까
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div className="bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
                 <div
-                    className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl ">
-                    <h1 className="p-[2rem] text-3xl font-bold">
-                        About Me
-                    </h1>
+                    className="AboutMe_container bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
                     <div
-                        className="bg-white w-[13rem] h-[13rem] mx-auto mt-[1rem] rounded-full flex items-center justify-center"
-                        id="profile_img">
-                        <img src="" alt="프로필"/>
-                    </div>
-                    <div className="flex flex-wrap gap-y-[1rem] my-[2rem] mx-auto max-w-[800px]">
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%] ">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/name.png" alt="" className="filter invert"/>
-                                </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        이름
-                                    </p>
-                                    <p className="info-card-content-body">
-                                        차진영
-                                    </p>
+                        className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl ">
+                        <h1 className="p-[2rem] text-3xl font-bold">
+                            About Me
+                        </h1>
+                        <div
+                            className="bg-white w-[13rem] h-[13rem] mx-auto mt-[1rem] rounded-full flex items-center justify-center"
+                            id="profile_img">
+                            <img src="" alt="프로필"/>
+                        </div>
+                        <div className="flex flex-wrap gap-y-[1rem] my-[2rem] mx-auto max-w-[800px]">
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%] ">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/name.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            이름
+                                        </p>
+                                        <p className="info-card-content-body">
+                                            차진영
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%]">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/birth.png" alt="" className="filter invert"/>
-                                </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        생년월일
-                                    </p>
-                                    <p className="info-card-content-body">
-                                        00.07.07
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%]">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/location.png" alt="" className="filter invert"/>
-                                </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        위치
-                                    </p>
-                                    <p className="info-card-content-body">
-                                        대구광역시 북구
-                                    </p>
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%]">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/birth.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            생년월일
+                                        </p>
+                                        <p className="info-card-content-body">
+                                            00.07.07
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%]">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/phone.png" alt="" className="filter invert"/>
-                                </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        연락처
-                                    </p>
-                                    <p className="info-card-content-body">
-                                        010-3367-3743
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%]">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/mail.png" alt="" className="filter invert"/>
-                                </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        이메일
-                                    </p>
-                                    <p className="info-card-content-body">
-                                        cjo3o@kakao.com
-                                    </p>
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%]">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/location.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            위치
+                                        </p>
+                                        <p className="info-card-content-body">
+                                            대구광역시 북구
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="w-[100%] sm:w-[50%] md:w-[33%]">
-                            <div className="info-card flex gap-[1rem] mx-[2rem]">
-                                <div className="info-card-img w-[2rem] h-[2rem]">
-                                    <img src="/icons/graduation.png" alt="" className="filter invert"/>
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%]">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/phone.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            연락처
+                                        </p>
+                                        <p className="info-card-content-body">
+                                            010-3367-3743
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="info-card-content text-left">
-                                    <p className="info-card-content-title font-bold">
-                                        학력
-                                    </p>
-                                    <p className="info-card-content-body flex flex-col">
-                                        <span>영진전문대</span>
-                                        <span>(컴퓨터정보계열)</span>
-                                    </p>
+                            </div>
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%]">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/mail.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            이메일
+                                        </p>
+                                        <p className="info-card-content-body">
+                                            cjo3o@kakao.com
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-[100%] sm:w-[50%] md:w-[33%]">
+                                <div className="info-card flex gap-[1rem] mx-[2rem]">
+                                    <div className="info-card-img w-[2rem] h-[2rem]">
+                                        <img src="/icons/graduation.png" alt="" className="filter invert"/>
+                                    </div>
+                                    <div className="info-card-content text-left">
+                                        <p className="info-card-content-title font-bold">
+                                            학력
+                                        </p>
+                                        <p className="info-card-content-body flex flex-col">
+                                            <span>영진전문대</span>
+                                            <span>(컴퓨터정보계열)</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
-                <div
-                    className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
-                    <h1 className="p-[2rem] text-3xl font-bold">
-                        Skill
-                    </h1>
-                    <div className="w-full max-w-[800px] mt-[1rem] mb-[2rem] mx-auto p-[1.5rem]">
-                        <div className="flex gap-[3rem]"
-                             id="frontend">
-                            <div className="min-w-[7rem] font-bold text-xl"
-                                 id="frontend-title">
-                                Frontend
+                <div className="skill_container bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
+                    <div
+                        className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
+                        <h1 className="p-[2rem] text-3xl font-bold">
+                            Skill
+                        </h1>
+                        <div className="w-full max-w-[800px] mt-[1rem] mb-[2rem] mx-auto p-[1.5rem]">
+                            <div className="flex gap-[3rem]"
+                                 id="frontend">
+                                <div className="min-w-[7rem] font-bold text-xl"
+                                     id="frontend-title">
+                                    Frontend
+                                </div>
+                                <div className="flex gap-[1rem] flex-wrap"
+                                     id="frontend-content">
+                                    {frontSkills.map((item, index) => {
+                                        return (
+                                            <div
+                                                className="bg-[#202020] text-[#f3f3f3] px-[1rem] py-[0.2rem] rounded-2xl"
+                                                key={item}>
+                                                {item}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
-                            <div className="flex gap-[1rem] flex-wrap"
-                                 id="frontend-content">
-                                {frontSkills.map((item, index) => {
+                            <div className="flex gap-[3rem] mt-[2rem]"
+                                 id="backend">
+                                <div className="min-w-[7rem] font-bold text-xl"
+                                     id="backend-title">
+                                    Backend
+                                </div>
+                                <div className="flex gap-[1rem] flex-wrap"
+                                     id="backend-content">
+                                    {backSkills.map((item, index) => {
+                                        return (
+                                            <div
+                                                className="bg-[#202020] text-[#f3f3f3] px-[1rem] py-[0.2rem] rounded-2xl"
+                                                key={item}>
+                                                {item}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="project_container bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
+                    <div
+                        className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
+                        <h1 className="p-[2rem] text-3xl font-bold">
+                            Project
+                        </h1>
+                        <div
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-[1.5rem] w-full max-w-[800px] mt-[1rem] mb-[2rem] mx-auto p-[1.5rem]">
+                            {
+                                projects.reverse().map((item, index) => {
                                     return (
                                         <div
-                                            className="bg-[#202020] text-[#f3f3f3] px-[1rem] py-[0.2rem] rounded-2xl"
-                                            key={item}>
-                                            {item}
+                                            className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] text-start rounded-2xl"
+                                            key={item.title}>
+                                            <div className="project-card-title text-xl font-bold">
+                                                {item.title}
+                                            </div>
+                                            <div className="project-card-content text-gray-200">
+                                                {item.content}
+                                            </div>
+                                            <div className="project-card-skills mt-[4rem] flex gap-[1rem] flex-wrap">
+                                                {item.skills.map((skill, index) => {
+                                                    return (
+                                                        <div
+                                                            className="project-card-skill bg-[#353535] px-[0.5rem] py-[0.2rem] rounded-lg"
+                                                            key={skill + index}>
+                                                            {skill}
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
                                         </div>
                                     )
-                                })}
-                            </div>
+                                })
+                            }
                         </div>
-                        <div className="flex gap-[3rem] mt-[2rem]"
-                             id="backend">
-                            <div className="min-w-[7rem] font-bold text-xl"
-                                 id="backend-title">
-                                Backend
-                            </div>
-                            <div className="flex gap-[1rem] flex-wrap"
-                                 id="backend-content">
-                                {backSkills.map((item, index) => {
+                    </div>
+                </div>
+                <div
+                    className="education_container bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
+                    <div
+                        className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
+                        <h1 className="p-[2rem] text-3xl font-bold">
+                            Education
+                        </h1>
+                        <div
+                            className="w-full max-w-[800px] my-[1rem] mx-auto p-[1.5rem] grid grid-cols-1 sm:grid-cols-2 gap-[1.5rem]">
+                            {
+                                education.reverse().map((item, index) => {
                                     return (
                                         <div
-                                            className="bg-[#202020] text-[#f3f3f3] px-[1rem] py-[0.2rem] rounded-2xl"
-                                            key={item}>
-                                            {item}
+                                            className="education-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] text-start rounded-2xl"
+                                            key={item.title}>
+                                            <div className="education-card-title flex flex-col">
+                                                <span className="text-md text-[#cccccc] mb-[0.3rem]">{item.date}</span>
+                                                <span className="text-2xl font-bold">{item.title}</span>
+                                                <span className="text-md">- {item.sub_title}</span>
+                                            </div>
+                                            <div className="education-card-contents mt-[4rem] text-sm">
+                                                <ul className="list-disc list-inside">
+                                                    {
+                                                        item.contents.map((content, index) => {
+                                                            return (
+                                                                <li key={content + index}>
+                                                                    {content}
+                                                                </li>
+                                                            )
+                                                        })
+                                                    }
+                                                </ul>
+                                            </div>
                                         </div>
                                     )
-                                })}
-                            </div>
+                                })
+                            }
                         </div>
-
                     </div>
                 </div>
-            </div>
-            <div className="bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
-                <div
-                    className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
-                    <h1 className="p-[2rem] text-3xl font-bold">
-                        Project
-                    </h1>
-                    <div
-                        className="grid grid-cols-1 sm:grid-cols-2 gap-[1.5rem] w-full max-w-[800px] mt-[1rem] mb-[2rem] mx-auto p-[1.5rem]">
-                        {
-                            projects.reverse().map((item, index) => {
-                                return (
-                                    <div
-                                        className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] text-start rounded-2xl"
-                                        key={item.title}>
-                                        <div className="project-card-title text-xl font-bold">
-                                            {item.title}
-                                        </div>
-                                        <div className="project-card-content text-gray-200">
-                                            {item.content}
-                                        </div>
-                                        <div className="project-card-skills mt-[4rem] flex gap-[1rem] flex-wrap">
-                                            {item.skills.map((skill, index) => {
-                                                return (
-                                                    <div
-                                                        className="project-card-skill bg-[#353535] px-[0.5rem] py-[0.2rem] rounded-lg"
-                                                        key={skill + index}>
-                                                        {skill}
-                                                    </div>
-                                                )
-                                            })}
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
+                <div className="w-full h-screen overflow-hidden relative flex flex-col items-center justify-center">
+                    <div className="w-full max-w-[1200px] overflow-hidden text-center">
+                        <h1 className="text-6xl font-bold">
+                            Thank you
+                        </h1>
+                        <p className="text-xl mt-[1.5rem] font-semibold">
+                            감사합니다 :)
+                        </p>
+                        <p className="inline-block max-w-[330px] mt-[4rem]">
+                            기술뿐 아니라 팀워크와 사용자의 관점까지 생각하는 개발자가 되겠습니다.
+                        </p>
+                    </div>
+                    <div className="text-center pb-[1rem] absolute bottom-0 w-full text-sm">
+                        <p>
+                            Copy right 2025. All rights reserved.
+                        </p>
+                        <p>
+                            React, Tailwind CSS 기반으로 제작된 사이트입니다.
+                        </p>
                     </div>
                 </div>
-            </div>
-            <div className="bg-[#252525] px-[1.5rem] text-[#f3f3f3] w-full h-full overflow-hidden">
-                <div
-                    className="mx-auto my-[5rem] w-full max-w-[1200px] overflow-hidden bg-[#404040] text-center rounded-2xl">
-                    <h1 className="p-[2rem] text-3xl font-bold">
-                        Education
-                    </h1>
-                    <div
-                        className="w-full max-w-[800px] my-[1rem] mx-auto p-[1.5rem] grid grid-cols-1 sm:grid-cols-2 gap-[1.5rem]">
-                        {
-                            education.reverse().map((item, index) => {
-                                return (
-                                    <div
-                                        className="education-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] text-start rounded-2xl"
-                                        key={item.title}>
-                                        <div className="education-card-title flex flex-col">
-                                            <span className="text-md text-[#cccccc] mb-[0.3rem]">{item.date}</span>
-                                            <span className="text-2xl font-bold">{item.title}</span>
-                                            <span className="text-md">- {item.sub_title}</span>
-                                        </div>
-                                        <div className="education-card-contents mt-[4rem] text-sm">
-                                            <ul className="list-disc list-inside">
-                                                {
-                                                    item.contents.map((content, index) => {
-                                                        return (
-                                                            <li key={content + index}>
-                                                                {content}
-                                                            </li>
-                                                        )
-                                                    })
-                                                }
-                                            </ul>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-            <div className="w-full h-screen overflow-hidden relative flex flex-col items-center justify-center">
-                <div className="w-full max-w-[1200px] overflow-hidden text-center">
-                    <h1 className="text-6xl font-bold">
-                        Thank you
-                    </h1>
-                    <p className="text-xl mt-[1.5rem] font-semibold">
-                        감사합니다 :)
-                    </p>
-                    <p className="inline-block max-w-[330px] mt-[4rem]">
-                        기술뿐 아니라 팀워크와 사용자의 관점까지 생각하는 개발자가 되겠습니다.
-                    </p>
-                </div>
-                <div className="text-center pb-[1rem] absolute bottom-0 w-full text-sm">
-                    <p>
-                        Copy right 2025. All rights reserved.
-                    </p>
-                    <p>
-                        React, Tailwind CSS 기반으로 제작된 사이트입니다.
-                    </p>
+                <div className="moveTop bg-gray-600 text-white w-fit p-3 rounded-full fixed bottom-4 right-4 cursor-pointer hover:bg-gray-700 transition-all" onClick={moveTop}>
+                    Top
                 </div>
             </div>
         </>
