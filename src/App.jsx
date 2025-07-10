@@ -1,5 +1,6 @@
 import Header from "./components/Header.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import "./style.css"; // style.css import 추가
 
 function App() {
     const frontSkills = ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'Axios', 'PWA', 'Vercel']
@@ -24,6 +25,11 @@ function App() {
             title: "With Go - 기사 앱",
             content: "사용자, 관리자, 기사 간의 상호작용을 기반으로 한 배송 관리 시스템(기사 전용 앱)",
             skills: ['TailWind', 'Node.js', 'nunjucks', 'Axios', 'supabase', 'PWA', 'Cloudtype']
+        },
+        {
+            title: "포트폴리오 사이트",
+            content: "포트폴리오를 만들기 위해 제작",
+            skills: ['React', 'Tailwind', 'vercel']
         }
     ]
     const education = [
@@ -47,18 +53,30 @@ function App() {
             behavior: 'smooth'
         })
     }
+
+    // 페이드인 상태값 추가
+    const [showIntro, setShowIntro] = useState(false);
+    const [isMouseOver, setIsMouseOver] = useState(false);
+
+    useEffect(() => {
+        setShowIntro(true);
+    }, []);
+
+
     return (
         <>
             <Header/>
             <div>
-                <div className="w-full h-full overflow-hidden">
-                    <div className="mx-auto my-[5rem] w-full max-w-[1200px] text-center"
-                         id="intro">
-                        <h1 className="text-3xl">
+                <div className="w-full h-screen overflow-hidden flex flex-col items-center justify-center">
+                    <div
+                        className={`w-full max-w-[1200px] h-full text-center flex flex-col items-center justify-center`}
+                        id="intro"
+                    >
+                        <h1 className={`text-3xl ${showIntro ? "slide-up" : ""}`}>
                             풀스택 개발자 <span className="font-bold">차진영</span>입니다.
                         </h1>
-                        <p className="text-xl mt-[2rem]">
-                            뭐라고 쓸까
+                        <p className={`text-md mt-[3rem] inline-block max-w-[350px] ${showIntro ? "fade-in" : ""}`}>
+                            유연한 커뮤니케이션과 책임감을 중요하게 생각하고 끊임없이 배우며, 더 나은 방향을 고민하는 개발자가 되겠습니다.
                         </p>
                     </div>
                 </div>
@@ -70,9 +88,9 @@ function App() {
                             About Me
                         </h1>
                         <div
-                            className="bg-white w-[13rem] h-[13rem] mx-auto mt-[1rem] rounded-full flex items-center justify-center"
+                            className="bg-white w-[15rem] h-[15rem] mx-auto overflow-hidden mt-[1rem] rounded-full flex items-center justify-center"
                             id="profile_img">
-                            <img src="" alt="프로필"/>
+                            <img src="/img/profile.jpg" alt="프로필" className="mt-[2rem]"/>
                         </div>
                         <div className="flex flex-wrap gap-y-[1rem] my-[2rem] mx-auto max-w-[800px]">
                             <div className="w-[100%] sm:w-[50%] md:w-[33%] ">
@@ -230,19 +248,24 @@ function App() {
                                 projects.reverse().map((item, index) => {
                                     return (
                                         <div
-                                            className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] text-start rounded-2xl"
-                                            key={item.title}>
-                                            <div className="project-card-title text-xl font-bold">
-                                                {item.title}
+                                            className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] justify-between text-start rounded-2xl cursor-pointer"
+                                            key={item.title}
+                                            onMouseOver={() => setIsMouseOver(true)}
+                                            onMouseLeave={() => setIsMouseOver(false)}
+                                        >
+                                            <div className="flex flex-col gap-[0.5rem]">
+                                                <div className="project-card-title text-xl font-bold">
+                                                    {item.title}
+                                                </div>
+                                                <div className="project-card-content text-gray-200">
+                                                    {item.content}
+                                                </div>
                                             </div>
-                                            <div className="project-card-content text-gray-200">
-                                                {item.content}
-                                            </div>
-                                            <div className="project-card-skills mt-[4rem] flex gap-[1rem] flex-wrap">
+                                            <div className="project-card-skills flex gap-[1rem] flex-wrap">
                                                 {item.skills.map((skill, index) => {
                                                     return (
                                                         <div
-                                                            className="project-card-skill bg-[#353535] px-[0.5rem] py-[0.2rem] rounded-lg"
+                                                            className="project-card-skill h-fit bg-[#353535] px-[0.5rem] py-[0.2rem] rounded-lg"
                                                             key={skill + index}>
                                                             {skill}
                                                         </div>
@@ -317,8 +340,10 @@ function App() {
                         </p>
                     </div>
                 </div>
-                <div className="moveTop bg-gray-600 text-white w-fit p-3 rounded-full fixed bottom-4 right-4 cursor-pointer hover:bg-gray-700 transition-all" onClick={moveTop}>
-                    Top
+                <div
+                    className="moveTop bg-gray-600 text-white w-fit p-3 rounded-full fixed bottom-4 right-4 cursor-pointer hover:bg-gray-700 transition-all"
+                    onClick={moveTop}>
+                    <img src="/icons/top.png" alt="" className="filter invert w-5 h-5"/>
                 </div>
             </div>
         </>
