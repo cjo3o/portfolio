@@ -1,37 +1,39 @@
 import Header from "./components/Header.jsx";
 import {useEffect, useState} from "react";
 import "./style.css"; // style.css import 추가
+import Modal from "./components/Modal.jsx";
+import projects from "./projects.json";
 
 function App() {
     const frontSkills = ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'Axios', 'PWA', 'Vercel']
     const backSkills = ['Node.js', 'Express', 'supabase', 'cloudtype']
-    const projects = [
-        {
-            title: "With Go - 사용자 웹",
-            content: "여행 중 짐을 안전하게 보관하거나 배송할 수 있는 짐 보관 및 배송 예약 서비스 플랫폼",
-            skills: ['HTML', 'CSS', 'JS', 'supabase']
-        },
-        {
-            title: "With Go - 관리자 웹",
-            content: "관리자가 효율적으로 서비스를 운영할 수 있도록 별도로 제작",
-            skills: ['React', 'Axios', 'supabase', 'PWA', 'vercel']
-        },
-        {
-            title: "실시간 대기정보 제공 및 알림 서비스",
-            content: "사용자에게 실시간 대기정보 및 위험수준에 따른 알림 서비스를 제공합니다.",
-            skills: ['React', 'Node.js', 'Tailwind', 'Axios', 'Supabase', 'vercel', 'Cloudtype']
-        },
-        {
-            title: "With Go - 기사 앱",
-            content: "사용자, 관리자, 기사 간의 상호작용을 기반으로 한 배송 관리 시스템(기사 전용 앱)",
-            skills: ['TailWind', 'Node.js', 'nunjucks', 'Axios', 'supabase', 'PWA', 'Cloudtype']
-        },
-        {
-            title: "포트폴리오 사이트",
-            content: "포트폴리오를 만들기 위해 제작",
-            skills: ['React', 'Tailwind', 'vercel']
-        }
-    ]
+    // const projects = [
+    //     {
+    //         title: "With Go - 사용자 웹",
+    //         content: "여행 중 짐을 안전하게 보관하거나 배송할 수 있는 짐 보관 및 배송 예약 서비스 플랫폼",
+    //         skills: ['HTML', 'CSS', 'JS', 'supabase']
+    //     },
+    //     {
+    //         title: "With Go - 관리자 웹",
+    //         content: "관리자가 효율적으로 서비스를 운영할 수 있도록 별도로 제작",
+    //         skills: ['React', 'Axios', 'supabase', 'PWA', 'vercel']
+    //     },
+    //     {
+    //         title: "먼망진창",
+    //         content: "사용자에게 실시간 대기정보 및 위험수준에 따른 알림 서비스를 제공합니다.",
+    //         skills: ['React', 'Node.js', 'Tailwind', 'Axios', 'Supabase', 'vercel', 'Cloudtype']
+    //     },
+    //     {
+    //         title: "With Go - 기사 앱",
+    //         content: "사용자, 관리자, 기사 간의 상호작용을 기반으로 한 배송 관리 시스템(기사 전용 앱)",
+    //         skills: ['TailWind', 'Node.js', 'nunjucks', 'Axios', 'supabase', 'PWA', 'Cloudtype']
+    //     },
+    //     {
+    //         title: "포트폴리오 사이트",
+    //         content: "포트폴리오를 만들기 위해 제작",
+    //         skills: ['React', 'Tailwind', 'vercel']
+    //     }
+    // ]
     const education = [
         {
             date: "2019.03 ~ 2025.02",
@@ -56,7 +58,9 @@ function App() {
 
     // 페이드인 상태값 추가
     const [showIntro, setShowIntro] = useState(false);
-    const [isMouseOver, setIsMouseOver] = useState(false);
+    const [hoveredProject, setHoveredProject] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
 
     useEffect(() => {
         setShowIntro(true);
@@ -245,20 +249,20 @@ function App() {
                         <div
                             className="grid grid-cols-1 sm:grid-cols-2 gap-[1.5rem] w-full max-w-[800px] mt-[1rem] mb-[2rem] mx-auto p-[1.5rem]">
                             {
-                                projects.reverse().map((item, index) => {
+                                projects.map((item, index) => {
                                     return (
                                         <div
-                                            className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] flex flex-col gap-[1rem] justify-between text-start rounded-2xl cursor-pointer"
+                                            className="project-card bg-[#202020] text-[#f3f3f3] p-[1rem] relative flex flex-col gap-[1rem] justify-between text-start rounded-2xl"
                                             key={item.title}
-                                            onMouseOver={() => setIsMouseOver(true)}
-                                            onMouseLeave={() => setIsMouseOver(false)}
+                                            onMouseEnter={() => setHoveredProject(item.title)}
+                                            onMouseLeave={() => setHoveredProject(null)}
                                         >
                                             <div className="flex flex-col gap-[0.5rem]">
                                                 <div className="project-card-title text-xl font-bold">
                                                     {item.title}
                                                 </div>
                                                 <div className="project-card-content text-gray-200">
-                                                    {item.content}
+                                                    {item.introduce}
                                                 </div>
                                             </div>
                                             <div className="project-card-skills flex gap-[1rem] flex-wrap">
@@ -272,6 +276,25 @@ function App() {
                                                     )
                                                 })}
                                             </div>
+                                            {
+                                                hoveredProject === item.title && (
+                                                    <div
+                                                        className={`text-center flex flex-col gap-[2rem] px-[1rem] items-center justify-center bg-[#202020] absolute bottom-0 left-0 w-full h-full rounded-2xl ${hoveredProject === item.title ? "card-hover" : ""}`}>
+                                                        <h1 className="text-2xl font-bold">
+                                                            {item.title}
+                                                        </h1>
+                                                        <button
+                                                            className="bg-[#353535] px-[5rem] py-[0.5rem] rounded-md cursor-pointer hover:bg-[#404040] transition-all ease-in-out duration-300"
+                                                            onClick={() => {
+                                                                setSelectedProject(item);
+                                                                setModalOpen(true);
+                                                            }}
+                                                        >
+                                                            자세히 보기
+                                                        </button>
+                                                    </div>
+                                                )
+                                            }
                                         </div>
                                     )
                                 })
@@ -346,6 +369,11 @@ function App() {
                     <img src="/icons/top.png" alt="" className="filter invert w-5 h-5"/>
                 </div>
             </div>
+            <Modal
+                open={modalOpen}
+                onClose={() => setModalOpen(false)}
+                project={selectedProject || {}}
+            />
         </>
     )
 }
